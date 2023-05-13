@@ -2,6 +2,6 @@ body{
     background-color: gray;
 }
 
-.destinos{
+.destinos ul li {
     list-style: none;
 }
