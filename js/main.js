@@ -1,7 +1,7 @@
 
 const origen = prompt("Ingrese un origen: ");
 
-  while (origen.trim == '' || Number(origen)) {
+  while (origen == '' || Number(origen)) {
     origen = prompt("Ingrese un origen");
     alert("ERROR. Por favor, ingrese su lugar de origen nuevamente.");
   }
@@ -28,31 +28,31 @@ alert(nrosDestinos)
     switch (parseInt(checkDestino)) {
         case 1:
           alert("Usted quiere viajar a New York, Estados Unidos")
-        break;
+        return destino1 ;
     
         case 2:
           alert("Usted quiere viajar a Roma, Italia")
-        break;
+        return destino2 ;
     
         case 3:
           alert("Usted quiere viajar a Ibiza, España")
-        break;
+        return destino3 ;
     
         case 4:
           alert("Usted quiere viajar a Paris, Francia")
-        break;
+        return destino4;
     
         case 5:
           alert("Usted quiere viajar a Mykonos, Grecia")
-        break;
+          return destino5;
     
         case 6:
           alert("Usted quiere viajar a Barloche, Argentina")
-        break;
+          return destino6;
     
         case 7:
           alert("Usted quiere viajar a Cataratas de Iguazú, Argentina")
-        break;
+          return destino7;
     
       default:
         alert("Por favor, intente nuevamente")
@@ -69,96 +69,74 @@ let checkDestino = prompt("Ingrese un número del 1 al 7 que corresponda a su de
 
 function verificarDestino() {
       if (checkDestino) {
-          if (checkDestino) {
-            mostrarDestino (checkDestino)
-          }
+            mostrarDestino (checkDestino);
       } else {
         alert("Ingrese su destino nuevamente :) ")
         }
   }
 verificarDestino ();
 
+
 // BOLETOS DE IDA - VUELTA - IDA/VUELTA
-// const ida = prompt("¿Desea sacar boletos sólo de ida? Escriba SI, si así lo desea: ");
-
-//   if (ida.toUpperCase() == "SI") {
-//       let fechaPartida = prompt("Ingrese la fecha de partida:");
-//       if (fechaPartida != Number) {
-//         alert("Ingrese una fecha válida")
-//       }
-//     let revisionIda = "Lugar de origen: " + origen + "\n" + "Destino: " +  destino + "\n" + "Fecha de partida: " + fechaPartida;
-//     alert(revisionIda)
-//     alert("A continuación mostraremos las mejores opciones para que disfrutes tu vuelo :)")
-
-//   } else if ( ida.toUpperCase() != "SI") {
-//     let vuelta = prompt("¿Desea sacar boletos sólo de regreso? Escriba SI, si así lo desea: ");
-//     alert(vuelta);
-//      alert("Por favor elija la fecha de regreso");
-//      let fechaV = prompt("Ingrese una fecha de regreso: ");
-//      let revisionVuelta = "Lugar de origen: " + origen + "\n" + "Destino: " +  destino + "\n" + "Fecha de regreso: " + fechaV;
-//      alert(revisionVuelta)
-//      alert("A continuación mostraremos las mejores opciones para que disfrutes tu vuelo :)")
-
-//   } else {
-//     let iyv = confirm("¿Deseas consultar vuelos de ida y vuelta?");
-//     alert(iyv);
-//     let fechaI = prompt("Ingrese una fecha de ida: ");
-//     let fechaV = prompt("Ingrese una fecha de regreso: ");
-//     let revisionIyV = "Lugar de origen: " + origen + "\n" + "Destino: " +  destino + "\n" + "Fecha de partida: " + fechaI + "\n" + "Fecha de regreso: " + fechaV;
-//     alert(revisionIyV);
-//   }
 
 const ida = confirm("¿Desea comprar boletos sólo de ida?");
 
   if (ida) {
-  let fechaPartida = prompt("Ingrese la fecha de partida (dd/mm/aaaa): ");
-  let fechaIngrPartida = new Date(fechaPartida);
-  let fechaActual = new Date();
+    let fechaPartida = prompt("Ingrese la fecha de partida (dd/mm/aaaa): ");
+    let fechaIngrPartida = new Date(fechaPartida);
+    let fechaActual = new Date();
 
-  if (fechaIngrPartida < fechaActual) {
-    alert("La fecha ingresada es anterior a la fecha actual. Por favor, ingrese una fecha válida.");
-  } else {
-    let revisionI = "Lugar de Origen: " + origen +
-    "\n" + "Lugar de destino: " + (verificarDestino()) +
-    "\n" + "Fecha de partida: " + fechaPartida 
-    alert(revisionI);
-    alert("A continuación mostraremos las mejores opciones para que disfrutes tu vuelo :)");
-  }
-} else if (!ida) {
-    const vuelta = confirm("¿Desea comprar boletos sólo para regresar?");
+      while (fechaIngrPartida < fechaActual) {
+        alert("La fecha ingresada es anterior a la fecha actual. Por favor, ingrese una fecha válida.")
+        fechaPartida = prompt("Ingrese la fecha de partida (dd/mm/aaaa): ")
+      }
 
-        if (vuelta) {
-          let fechaV = prompt("Ingrese una fecha de regreso (dd/mm/aaaa): ");
-          let fechaIngrVuelta = new Date (fechaV);
-          fechaActual = new Date();
-        
-          if (fechaIngrVuelta < fechaActual) {
-            alert("La fecha ingresada es anterior a la fecha actual. Por favor, ingrese una fecha válida.");
-          } else {
-            alert("A continuación mostraremos las mejores opciones para que disfrutes tu vuelo :)");
-          }
+      let msjDestino = verificarDestino();      
 
-        } else {
-            const iYv = confirm("¿Deseas comprar boletos de ida y vuelta?");
+    if (fechaIngrPartida) {
+      let revisionI = "Fecha de partida: " + fechaPartida +
+      "\n" + "Lugar de origen: " + origen 
 
-            if (iYv) {
-              fechaPartida = prompt("Ingrese la fecha de partida (dd/mm/aaaa): ");
-              fechaIngrPartida = new Date(fechaPartida);
-              fechaActual = new Date();
+      alert(revisionI + "\nDestino seleccionado: " + msjDestino);
+      alert("A continuación mostraremos las mejores opciones para que disfrutes tu vuelo :)");
 
-                if (fechaIngrPartida < fechaActual) {
-                  alert("La fecha ingresada es anterior a la fecha actual. Por favor, ingrese una fecha válida.");
-                }
+    } 
 
-              fechaV = prompt("Ingrese una fecha de regreso (dd/mm/aaaa): ");
-              fechaIngrVuelta = new Date (fechaV);
-              fechaActual = new Date();
-            
-                if (fechaIngrVuelta < fechaActual) {
-                  alert("La fecha ingresada es anterior a la fecha actual. Por favor, ingrese una fecha válida.");
-                } else {
-                  alert("A continuación mostraremos las mejores opciones para que disfrutes tu vuelo :)");
-                }
+  } else if (!ida) {
+      const vuelta = confirm("¿Desea comprar boletos sólo para regresar?");
+
+          if (vuelta) {
+            let fechaV = prompt("Ingrese una fecha de regreso (dd/mm/aaaa): ");
+            let fechaIngrVuelta = new Date (fechaV);
+            fechaActual = new Date();
+          
+            if (fechaIngrVuelta < fechaActual) {
+              alert("La fecha ingresada es anterior a la fecha actual. Por favor, ingrese una fecha válida.");
+            } else {
+              alert("A continuación mostraremos las mejores opciones para que disfrutes tu vuelo :)");
             }
-          }
-  } 
+
+          } else {
+              const iYv = confirm("¿Deseas comprar boletos de ida y vuelta?");
+
+              if (iYv) {
+                fechaPartida = prompt("Ingrese la fecha de partida (dd/mm/aaaa): ");
+                fechaIngrPartida = new Date(fechaPartida);
+                fechaActual = new Date();
+
+                  if (fechaIngrPartida < fechaActual) {
+                    alert("La fecha ingresada es anterior a la fecha actual. Por favor, ingrese una fecha válida.");
+                  }
+
+                fechaV = prompt("Ingrese una fecha de regreso (dd/mm/aaaa): ");
+                fechaIngrVuelta = new Date (fechaV);
+                fechaActual = new Date();
+              
+                  if (fechaIngrVuelta < fechaActual) {
+                    alert("La fecha ingresada es anterior a la fecha actual. Por favor, ingrese una fecha válida.");
+                  } else {
+                    alert("A continuación mostraremos las mejores opciones para que disfrutes tu vuelo :)");
+                  }
+              }
+            }
+    } 
