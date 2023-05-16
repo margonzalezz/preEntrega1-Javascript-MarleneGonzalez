@@ -1,5 +1,5 @@
 
-const origen = prompt("Ingrese un origen: ");
+let origen = prompt("Ingrese un origen: ");
 
   while (origen == '' || Number(origen)) {
     origen = prompt("Ingrese un origen");
@@ -14,7 +14,7 @@ const destino5 = "Mykonos, Grecia";
 const destino6 = "Bariloche, Argentina";
 const destino7 = "Cataratas de Iguazú, Argentina"; 
 
-let nrosDestinos = "A continuación, escriba el número que corresponda a su destino deseado" + 
+const nrosDestinos = "A continuación, escriba el número que corresponda a su destino deseado" + 
 "\n" + "1. " + destino1 + 
 "\n" + "2. " + destino2 + 
 "\n" + "3. " + destino3 +
@@ -69,13 +69,11 @@ let checkDestino = prompt("Ingrese un número del 1 al 7 que corresponda a su de
 
 function verificarDestino() {
       if (checkDestino) {
-            mostrarDestino (checkDestino);
+            mostrarDestino (checkDestino)
       } else {
         alert("Ingrese su destino nuevamente :) ")
         }
   }
-verificarDestino ();
-
 
 // BOLETOS DE IDA - VUELTA - IDA/VUELTA
 
@@ -90,16 +88,15 @@ const ida = confirm("¿Desea comprar boletos sólo de ida?");
         alert("La fecha ingresada es anterior a la fecha actual. Por favor, ingrese una fecha válida.")
         fechaPartida = prompt("Ingrese la fecha de partida (dd/mm/aaaa): ")
       }
-
-      let msjDestino = verificarDestino();      
-
+      
     if (fechaIngrPartida) {
-      let revisionI = "Fecha de partida: " + fechaPartida +
-      "\n" + "Lugar de origen: " + origen 
+      let msjDestino = mostrarDestino(checkDestino)      
+      let revisionI = "Lugar de Origen: " + origen +
+      "\n" + "Destino: " + msjDestino +
+      "\n" + "Fecha de partida: " + fechaPartida;
 
-      alert(revisionI + "\nDestino seleccionado: " + msjDestino);
+      alert(revisionI);
       alert("A continuación mostraremos las mejores opciones para que disfrutes tu vuelo :)");
-
     } 
 
   } else if (!ida) {
