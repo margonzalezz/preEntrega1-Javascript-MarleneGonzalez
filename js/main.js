@@ -26,42 +26,42 @@ alert(nrosDestinos)
   function mostrarDestino (checkDestino) {
     switch (parseInt(checkDestino)) {
         case 1:
-          alert("Usted quiere viajar a New York, Estados Unidos")
+          alert("Usted quiere viajar a New York, Estados Unidos");
         return destino1 ;
         case 2:
-          alert("Usted quiere viajar a Roma, Italia")
+          alert("Usted quiere viajar a Roma, Italia");
         return destino2 ;
         case 3:
-          alert("Usted quiere viajar a Ibiza, España")
+          alert("Usted quiere viajar a Ibiza, España");
         return destino3 ;
         case 4:
-          alert("Usted quiere viajar a Paris, Francia")
+          alert("Usted quiere viajar a Paris, Francia");
         return destino4;
         case 5:
-          alert("Usted quiere viajar a Mykonos, Grecia")
+          alert("Usted quiere viajar a Mykonos, Grecia");
           return destino5;
         case 6:
-          alert("Usted quiere viajar a Barloche, Argentina")
+          alert("Usted quiere viajar a Barloche, Argentina");
           return destino6;
         case 7:
-          alert("Usted quiere viajar a Cataratas de Iguazú, Argentina")
+          alert("Usted quiere viajar a Cataratas de Iguazú, Argentina");
           return destino7;
       default:
-        alert("Por favor, intente nuevamente")
+        alert("Por favor, intente nuevamente");
         break;
     }
   }
     let checkDestino = prompt("Ingrese un número del 1 al 7 que corresponda a su destino: ");
       while (checkDestino === '' || isNaN(Number(checkDestino)) || Number(checkDestino) > 7) {
         checkDestino = prompt("Ingrese un número del 1 al 7 que corresponda a su destino: ");
-        alert("Ingrese su destino nuevamente :) ")
+        alert("Ingrese su destino nuevamente :) ");
       }
 
 function verificarDestino() {
       if (checkDestino) {
-            mostrarDestino (checkDestino)
+            mostrarDestino (checkDestino);
       } else {
-        alert("Ingrese su destino nuevamente :) ")
+        alert("Ingrese su destino nuevamente :) ");
         }
   }
 let msjDestino = mostrarDestino(checkDestino) 
@@ -75,8 +75,8 @@ const ida = confirm("¿Desea comprar boletos sólo de ida?");
     let fechaActual = new Date();
 
         while (fechaIngrPartida < fechaActual) {
-          alert("Por favor, ingrese una fecha válida.")
-          fechaPartida = prompt("Ingrese la fecha de partida (dd/mm/aaaa): ")
+          alert("Por favor, ingrese una fecha válida.");
+          fechaPartida = prompt("Ingrese la fecha de partida (dd/mm/aaaa): ");
         }
     if (fechaIngrPartida) {
       let revisionI = "Lugar de Origen: " + origen +
@@ -126,6 +126,7 @@ const ida = confirm("¿Desea comprar boletos sólo de ida?");
                                   "\n" + "Destino: " + msjDestino +
                                   "\n" + "Fecha de partida: " + fechaPartida +
                                   "\n" + "Fecha de regreso: " + fechaV;
+                alert(revisionIyV);
                 alert("A continuación mostraremos las mejores opciones para que disfrutes tu vuelo :)");
               }
           }
